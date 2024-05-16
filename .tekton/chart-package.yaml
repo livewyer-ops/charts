@@ -15,7 +15,7 @@ spec:
       - name: kind
         value: pipeline
       - name: name
-        value: multi-chart-package
+        value: multi-chart-package-public-charts-test
   params:
     - name: REPO_OWNER
       value: "{{ repo_owner }}"
