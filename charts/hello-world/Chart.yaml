@@ -1,0 +1,16 @@
+name: hello-world
+version: 0.1.0
+appVersion: v1.16.0
+description: |
+  hello-world example of a public Helm chart
+sources:
+  - https://github.com/livewyer-ops/charts
+home: https://livewyer.io
+icon: "https://helm.sh/img/helm.svg"
+maintainers:
+  - name: LiveWyer
+    email: hello@livewyer.com
+    url: https://livewyer.io
+apiVersion: v2
+deprecated: false
+type: application

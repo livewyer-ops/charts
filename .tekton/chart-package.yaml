@@ -1,0 +1,51 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  name: public-chart-package
+  annotations:
+    pipelinesascode.tekton.dev/on-cel-expression: |
+      ( event == "pull_request" || ( event == "push" && source_branch == "main") ) && body.sender.login != "livewyer-bot"
+
+    # The branch or tag we are targeting (i.e.: main, refs/tags/*)
+    pipelinesascode.tekton.dev/on-target-branch: "[main]"
+spec:
+  pipelineRef:
+    resolver: cluster
+    params:
+      - name: kind
+        value: pipeline
+      - name: name
+        value: multi-chart-package-public-charts-test
+  params:
+    - name: REPO_OWNER
+      value: "{{ repo_owner }}"
+    - name: REPO_NAME
+      value: "{{ repo_name }}"
+    - name: SOURCE_BRANCH
+      value: "{{ source_branch }}"
+    - name: PULL_REQUEST_NUMBER
+      value: "{{ pull_request_number }}"
+    - name: COMMIT_SHA
+      value: "{{ revision }}"
+    - name: REGISTRY_URL
+      value: ghcr.io/livewyer-ops
+  taskRunTemplate:
+    serviceAccountName: pipelines-as-code-runner
+    podTemplate:
+      securityContext:
+        fsGroup: 65532
+  workspaces:
+    - name: shared-data
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: 128Mi
+    - name: helm-registry-credentials
+      secret:
+        secretName: lw-ghcr-cred
+    - name: ssh-directory
+      secret:
+        secretName: livewyer-bot-ssh-creds
