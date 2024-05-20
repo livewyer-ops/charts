@@ -49,4 +49,3 @@ spec:
     - name: ssh-directory
       secret:
         secretName: livewyer-bot-ssh-creds
-

@@ -5,8 +5,6 @@ description: |
   hello-world example of a public Helm chart
 sources:
   - https://github.com/livewyer-ops/charts
-# annotations:
-#  org.opencontainers.image.source: https://github.com/livewyer-ops/charts
 home: https://livewyer.io
 icon: "https://helm.sh/img/helm.svg"
 maintainers:
