@@ -15,7 +15,7 @@ LiveWyer Helm chart repository offers a diverse collection of Helm charts design
 
 ## Getting started
 
-Please, follow the [following doc](docs/writing-helm-charts.md).
+Please, follow the [following doc](docs/coding-standards.md).
 
 ## Contributing
 

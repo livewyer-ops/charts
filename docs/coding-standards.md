@@ -1,6 +1,6 @@
-# Writing Helm charts
+# Coding Standards
 
-- [Writing Helm charts](#writing-helm-charts)
+- [Coding Standards](#coding-standards)
   - [Requirements](#requirements)
   - [Submitting a Helm chart](#submitting-a-helm-chart)
 
@@ -12,7 +12,7 @@ A Helm chart should be stored inside the `charts/` directory.
 
 ## Submitting a Helm chart
 
-When submitting a Helm chart for a review to publish it, please consider the next:
+When submitting a Helm chart for a review to publish it, please make sure you follow the next requirements:
 
 - A Helm chart has an up to date `README.md` file generated with `helm-docs`
 - All the values in `values.yaml` file are commented.
