@@ -13,9 +13,9 @@
 
 LiveWyer Helm chart repository offers a diverse collection of Helm charts designed to streamline the deployment process and accelerate your Kubernetes journey.
 
-## Getting started
+## Coding standards
 
-Please, follow the [following doc](docs/coding-standards.md).
+Please, refer to the [following doc](docs/coding-standards.md).
 
 ## Contributing
 

@@ -4,26 +4,20 @@
   - [Requirements](#requirements)
   - [Submitting a Helm chart](#submitting-a-helm-chart)
 
-A Helm chart should be stored inside the `charts/` directory.
+A Helm chart should be stored inside a subfolder in the `charts/` directory.
+
+> `hello-world` example could be found [here](https://github.com/livewyer-ops/charts/tree/main/charts/hello-world).
 
 ## Requirements
 
-- Installed [helm-docs](https://github.com/norwoodj/helm-docs)
+- [helm-docs](https://github.com/norwoodj/helm-docs)
 
 ## Submitting a Helm chart
 
-When submitting a Helm chart for a review to publish it, please make sure you follow the next requirements:
+Every Helm chart in the repo should follow [`Helm's` best practices](https://helm.sh/docs/chart_best_practices).
 
-- A Helm chart has an up to date `README.md` file generated with `helm-docs`
-- All the values in `values.yaml` file are commented.
-- A `Chart.yaml` file of the Helm chart has a `org.opencontainers.image.source: https://github.com/livewyer-ops/charts` annotation.
+In addition to `Helm's` standards, please make sure to follow the repository's requirements:
 
-An example of annotation:
-
-```yaml
-apiVersion: v2
-name: hello-world
-description: A Helm chart for Kubernetes
-annotations:
-  org.opencontainers.image.source: https://github.com/livewyer-ops/charts
-```
+- All the values in a `values.yaml` file are commented as it's shown [here](https://github.com/livewyer-ops/charts/blob/main/charts/hello-world/values.yaml).
+- A `Chart.yaml` file of the Helm chart has the same template as [here](https://github.com/livewyer-ops/charts/blob/main/charts/hello-world/Chart.yaml).
+- A Helm chart has an up to date [`README.md`](https://github.com/livewyer-ops/charts/blob/main/charts/hello-world/README.md) file generated with `helm-docs` command
