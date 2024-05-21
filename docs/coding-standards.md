@@ -20,4 +20,4 @@ In addition to `Helm's` standards, please make sure to follow the repository's r
 
 - All the values in a `values.yaml` file are commented as it's shown [here](https://github.com/livewyer-ops/charts/blob/main/charts/hello-world/values.yaml).
 - A `Chart.yaml` file of the Helm chart has the same template as [here](https://github.com/livewyer-ops/charts/blob/main/charts/hello-world/Chart.yaml).
-- A Helm chart has an up to date [`README.md`](https://github.com/livewyer-ops/charts/blob/main/charts/hello-world/README.md) file generated with `helm-docs` command
+- A Helm chart has an up to date [README.md](https://github.com/livewyer-ops/charts/blob/main/charts/hello-world/README.md) file generated with `helm-docs` command
