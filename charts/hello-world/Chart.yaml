@@ -2,7 +2,7 @@ name: hello-world
 version: 0.1.1
 appVersion: v1.16.0
 description: |
-  hello-world example of a public Helm chart
+  `hello-world` Helm chart deploys NGINX webserver.
 sources:
   - https://github.com/livewyer-ops/charts
 home: https://livewyer.io
