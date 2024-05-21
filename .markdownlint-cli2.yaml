@@ -4,9 +4,8 @@ fix: false
 # Configure rules
 # Ref. <https://github.com/DavidAnson/markdownlint/blob/v0.32.1/README.md#options>
 config:
-  # Number of characters
-  MD013:
-    line_length: 160
+  # Disabling MD013 since Helm chart's README has unpredictable number of characters
+  line-length: false
 
 # Ignore files referenced by .gitignore
 gitignore: true
