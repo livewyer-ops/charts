@@ -19,7 +19,7 @@ We value your feedback and suggestions!
 If you have any ideas or want to report issues, please create an [issue](https://github.com/livewyer-ops/charts/issues/new/choose).  
 Additionally, you can submit your contributions by opening a [pull request](https://github.com/livewyer-ops/charts/pulls).
 
-> When contributing, please refer to the [following doc](docs/coding-standards.md).
+> Please ensure you follow these [coding standards](docs/coding-standards.md) when adding a Helm chart to this repository.
 
 ---
 
