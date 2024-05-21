@@ -4,6 +4,7 @@
 
 <p align="center">
     <a href="https://livewyer.io"><img src="https://badgen.net/badge/Website/livewyer.io" alt="LiveWyer Website badge" /></a>
+    <a href="https://github.com/orgs/livewyer-ops/packages?repo_name=charts"><img src="https://badgen.net/badge/GHCR/LiveWyer%20Charts" alt="LiveWyer Website badge" /></a>
     <a href="https://twitter.com/LiveWyerUK"><img src="https://badgen.net/badge/X/@LiveWyerUK" alt="Twitter badge" /></a>
     <a href="https://www.linkedin.com/company/livewyer"><img src="https://badgen.net/badge/LinkedIn/LiveWyer" alt="LinkedIn badge" /></a>
 </p>
