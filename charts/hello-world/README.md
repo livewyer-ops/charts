@@ -45,7 +45,7 @@ hello-world example of a public Helm chart
 | nodeSelector | object | `{}` | Node selection constraint. Ref. <https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector> |
 | podAnnotations | object | `{}` | Adds custom pod annotations. |
 | podSecurityContext | object | `{}` | Sets security context for the pod. |
-| replicaCount | int | `1` | Sets number of pods to be created. |
+| replicaCount | int | `2` | Sets number of pods to be created. |
 | resources | object | `{}` | Resources usage |
 | securityContext | object | `{}` | Sets security context for a specific container of the pod. |
 | service | object | `{"port":80,"type":"ClusterIP"}` | Service settings |

@@ -48,4 +48,4 @@ spec:
         secretName: lw-ghcr-cred
     - name: ssh-directory
       secret:
-        secretName: livewyer-bot-ssh-creds
+        secretName: livewyer-bot-ssh-cred
