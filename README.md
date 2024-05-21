@@ -3,7 +3,6 @@
 ![LiveWyer Banner](./.github/img/github-banner.png?raw=true)
 
 <p align="center">
-    <!-- <a href="https://github.com/orgs/livewyer-ops/packages?repo_name=charts"><img src="https://github.com/orgs/livewyer-ops/packages?repo_name=charts" alt="GitHub Packages"/></a> -->
     <a href="https://twitter.com/LiveWyerUK"><img src="https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=X&logoColor=white" alt="Twitter badge" /></a>
     <a href="https://www.linkedin.com/company/livewyer"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn badge" /></a>
 </p>
@@ -14,15 +13,13 @@
 
 LiveWyer Helm chart repository offers a diverse collection of Helm charts designed to streamline the deployment process and accelerate your Kubernetes journey.
 
-## Coding standards
-
-Please, refer to the [following doc](docs/coding-standards.md).
-
 ## Contributing
 
-We value your feedback and suggestions!
-If you have any ideas or want to report issues, please create an [issue](https://github.com/livewyer-ops/charts/issues/new/choose).
+We value your feedback and suggestions!  
+If you have any ideas or want to report issues, please create an [issue](https://github.com/livewyer-ops/charts/issues/new/choose).  
 Additionally, you can submit your contributions by opening a [pull request](https://github.com/livewyer-ops/charts/pulls).
+
+> When contributing, please refer to the [following doc](docs/coding-standards.md).
 
 ---
 
