@@ -1,7 +1,7 @@
 name: 🐛 Bug Report
 description: File a new bug report
 title: 'bug: <title>'
-labels: [Bug]
+labels: [bug]
 body:
   - type: textarea
     attributes:
@@ -9,6 +9,7 @@ body:
       description: 'A clear and concise description of what the bug is.'
     validations:
       required: false
+
   - type: textarea
     attributes:
       label: 'Steps to reproduce'
@@ -19,18 +20,21 @@ body:
         4. See error.
     validations:
       required: false
+
   - type: textarea
     attributes:
       label: 'Expected behavior'
       description: "A clear and concise description of what you expected to happen."
     validations:
       required: false
+
   - type: textarea
     attributes:
       label: 'Evidence'
       description: 'If applicable, add code snippets, links, or screenshots to help explain your problem.'
     validations:
       required: false
+
   - type: textarea
     attributes:
       label: 'Environment'
