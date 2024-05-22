@@ -3,10 +3,10 @@
 ![LiveWyer Banner](./.github/img/github-banner.png?raw=true)
 
 <p align="center">
-    <a href="https://livewyer.io"><img src="./.github/img/github-banner.png?raw=true" style="height: 28px; width: 100px" alt="LiveWyer Website badge" /></a>
-    <a href="https://github.com/orgs/livewyer-ops/packages?repo_name=charts"><img src="https://miro.medium.com/v2/resize:fit:470/1*rzVv5F2kvMyoi5jNQa0iLQ.png" style="height: 28px; width: 40px" alt="LiveWyer Website badge" /></a>
-    <a href="https://twitter.com/LiveWyerUK"><img src="https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=X&logoColor=white" alt="Twitter badge" /></a>
-    <a href="https://www.linkedin.com/company/livewyer"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn badge" /></a>
+    <a href="https://livewyer.io"><img src="https://badgen.net/badge/Website/livewyer.io" alt="LiveWyer Website badge" /></a>
+    <a href="https://github.com/orgs/livewyer-ops/packages?repo_name=charts"><img src="https://badgen.net/badge/GHCR/GitHub%20Container%20Registry" alt="LiveWyer Website badge" /></a>
+    <a href="https://twitter.com/LiveWyerUK"><img src="https://badgen.net/badge/X/@LiveWyerUK" alt="Twitter badge" /></a>
+    <a href="https://www.linkedin.com/company/livewyer"><img src="https://badgen.net/badge/LinkedIn/LiveWyer" alt="LinkedIn badge" /></a>
 </p>
 
 <h1 align="center">LiveWyer Helm Charts Repository</h1>
