@@ -4,7 +4,7 @@
 
 <p align="center">
     <a href="https://livewyer.io"><img src="./.github/img/github-banner.png?raw=true" style="height: 28px; width: 100px" alt="LiveWyer Website badge" /></a>
-    <a href="https://github.com/orgs/livewyer-ops/packages?repo_name=charts"><img src="https://github.githubassets.com/assets/icon-integration-d8116306cd00.png" style="height: 28px; width: 40px" alt="LiveWyer Website badge" /></a>
+    <a href="https://github.com/orgs/livewyer-ops/packages?repo_name=charts"><img src="https://miro.medium.com/v2/resize:fit:470/1*rzVv5F2kvMyoi5jNQa0iLQ.png" style="height: 28px; width: 40px" alt="LiveWyer Website badge" /></a>
     <a href="https://twitter.com/LiveWyerUK"><img src="https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=X&logoColor=white" alt="Twitter badge" /></a>
     <a href="https://www.linkedin.com/company/livewyer"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn badge" /></a>
 </p>
