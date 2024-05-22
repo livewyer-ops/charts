@@ -4,7 +4,7 @@
 
 <p align="center">
     <a href="https://livewyer.io"><img src="https://badgen.net/badge/Website/livewyer.io" alt="LiveWyer Website badge" /></a>
-    <a href="https://github.com/orgs/livewyer-ops/packages?repo_name=charts"><img src="https://badgen.net/badge/GHCR/GitHub%20Packages" alt="LiveWyer Website badge" /></a>
+    <a href="https://github.com/orgs/livewyer-ops/packages?repo_name=charts"><img src="https://badgen.net/badge/GHCR/GitHub%20Container%20Registry" alt="LiveWyer Website badge" /></a>
     <a href="https://twitter.com/LiveWyerUK"><img src="https://badgen.net/badge/X/@LiveWyerUK" alt="Twitter badge" /></a>
     <a href="https://www.linkedin.com/company/livewyer"><img src="https://badgen.net/badge/LinkedIn/LiveWyer" alt="LinkedIn badge" /></a>
 </p>
@@ -16,6 +16,15 @@ You can find our Helm charts on GitHub Container Registry (GHCR): <https://githu
 ## Overview
 
 LiveWyer Helm chart repository offers a diverse collection of Helm charts designed to streamline the deployment process and accelerate your Kubernetes journey.
+
+### CI/CD
+
+We enabled `Tekton` [CI](https://tekton.dev) with [PaC](https://pipelinesascode.com) on this repo to execute the following pipelines:
+
+* [Chart package](./.tekton/chart-package.yaml) that packages your Helm chart and pushed to `livewyer-ops` GHCR
+* [Markdown lint](./.tekton/markdown-lint.yaml) that lints all markdown files in this repository
+
+> A `markdown` [configuration file](./.markdownlint-cli2.yaml) is applied.
 
 ## Documentation
 
