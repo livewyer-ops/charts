@@ -30,14 +30,6 @@ We enabled `Tekton` [CI](https://tekton.dev) with [PaC](https://pipelinesascode.
 
 For detailed information on each Helm chart and configuration options, please refer to the respective Helm chart and `README` in the corresponding directory.
 
-## Contributing
-
-We value your feedback and suggestions!  
-If you have any ideas or want to report issues, please create an [issue](https://github.com/livewyer-ops/charts/issues/new/choose).  
-Additionally, you can submit your contributions by opening a [pull request](https://github.com/livewyer-ops/charts/pulls).
-
-> Please ensure you follow these [coding standards](docs/coding-standards.md) when adding a Helm chart to this repository.
-
 ---
 
 Copyright © 2024 LiveWyer, Licensed under the `MIT` License; you may not use this file except in compliance with the [License](LICENSE).
