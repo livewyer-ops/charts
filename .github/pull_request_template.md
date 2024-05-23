@@ -22,7 +22,7 @@
 
 ## Checklist
 
-- [x] I have read the [`CONTRIBUTING`](https://github.com/livewyer-ops/charts?tab=readme-ov-file#contributing) file and followed the guidelines.
+- [x] I have read the [`CONTRIBUTING`](https://github.com/livewyer-ops/charts/blob/main/CONTRIBUTING.md) file and followed the guidelines.
 - [x] My code follows the code style of this project.
 - [x] I have tested my changes locally and ensured they work as expected.
 - [x] I have updated the documentation accordingly.
