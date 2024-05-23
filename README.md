@@ -17,6 +17,8 @@ You can find our Helm charts on GitHub Container Registry (GHCR): <https://githu
 
 LiveWyer Helm chart repository offers a diverse collection of Helm charts designed to streamline the deployment process and accelerate your Kubernetes journey.
 
+> Refer to [CONTRIBUTING.md](./CONTRIBUTING.md) for guidance how to contribute to the project.
+
 ### CI/CD
 
 We enabled `Tekton` [CI](https://tekton.dev) with [PaC](https://pipelinesascode.com) on this repo to execute the following pipelines:
