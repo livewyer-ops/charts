@@ -1,14 +1,16 @@
-# Coding Standards
+# Contributing
 
-- [Coding Standards](#coding-standards)
-  - [Requirements](#requirements)
-  - [Submitting a Helm chart](#submitting-a-helm-chart)
+We value your feedback and suggestions!  
+If you have any ideas or want to report issues, please create an [issue](https://github.com/livewyer-ops/charts/issues/new/choose).  
+Additionally, you can submit your contributions by opening a [pull request](https://github.com/livewyer-ops/charts/pulls).
+
+## Coding Standards
 
 A Helm chart should be stored inside a subfolder in the `charts/` directory.
 
 > `hello-world` example could be found [here](https://github.com/livewyer-ops/charts/tree/main/charts/hello-world).
 
-## Requirements
+### Requirements
 
 - [helm-docs](https://github.com/norwoodj/helm-docs)
 

@@ -17,6 +17,8 @@ You can find our Helm charts on GitHub Container Registry (GHCR): <https://githu
 
 LiveWyer Helm chart repository offers a diverse collection of Helm charts designed to streamline the deployment process and accelerate your Kubernetes journey.
 
+> Refer to [CONTRIBUTING.md](./CONTRIBUTING.md) for guidance how to contribute to the project.
+
 ### CI/CD
 
 We enabled `Tekton` [CI](https://tekton.dev) with [PaC](https://pipelinesascode.com) on this repo to execute the following pipelines:
@@ -29,14 +31,6 @@ We enabled `Tekton` [CI](https://tekton.dev) with [PaC](https://pipelinesascode.
 ## Documentation
 
 For detailed information on each Helm chart and configuration options, please refer to the respective Helm chart and `README` in the corresponding directory.
-
-## Contributing
-
-We value your feedback and suggestions!  
-If you have any ideas or want to report issues, please create an [issue](https://github.com/livewyer-ops/charts/issues/new/choose).  
-Additionally, you can submit your contributions by opening a [pull request](https://github.com/livewyer-ops/charts/pulls).
-
-> Please ensure you follow these [coding standards](docs/coding-standards.md) when adding a Helm chart to this repository.
 
 ---
 
