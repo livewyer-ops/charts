@@ -2,6 +2,6 @@
 # Ref. <https://pipelinesascode.com/docs/guide/running>
 
 approvers:
-- ci-admins
+- charts-maintainers
 reviewers:
-- ci-admins
+- charts-maintainers

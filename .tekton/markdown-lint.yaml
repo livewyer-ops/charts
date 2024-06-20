@@ -6,7 +6,6 @@ metadata:
     # -- Ref. <https://pipelinesascode.com/docs/guide/authoringprs>
     pipelinesascode.tekton.dev/on-cel-expression: |
       ( event == "pull_request" || ( event == "push" && source_branch == "main") ) && body.sender.login != "livewyer-bot"
-    pipelinesascode.tekton.dev/on-target-branch: "[main]"
 spec:
   pipelineRef:
     resolver: cluster
@@ -16,10 +15,12 @@ spec:
       - name: name
         value: markdownlint
   params:
-    - name: repo_name
-      value: "{{repo_name}}"
-    - name: source_branch
-      value: "{{source_branch}}"
+    - name: url
+      value: "{{repo_url}}"
+    - name: revision
+      value: "{{revision}}"
+    - name: fileName
+      value: "Chart.yaml"
   taskRunTemplate:
     serviceAccountName: pipelines-as-code-runner
     podTemplate:
@@ -34,3 +35,6 @@ spec:
           resources:
             requests:
               storage: 128Mi
+    - name: basic-auth
+      secret:
+        secretName: "{{git_auth_secret}}"
