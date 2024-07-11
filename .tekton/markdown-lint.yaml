@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
-  name: charts-markdownlint
+  name: markdownlint-{{repo_name}}
   annotations:
-    # -- Ref. <https://pipelinesascode.com/docs/guide/authoringprs>
     pipelinesascode.tekton.dev/on-cel-expression: |
       ( event == "pull_request" || ( event == "push" && source_branch == "main") ) && body.sender.login != "livewyer-bot"
+
 spec:
   pipelineRef:
     resolver: cluster
@@ -14,6 +14,7 @@ spec:
         value: pipeline
       - name: name
         value: markdownlint
+
   params:
     - name: url
       value: "{{repo_url}}"
@@ -21,12 +22,11 @@ spec:
       value: "{{revision}}"
     - name: fileName
       value: "Chart.yaml"
-  taskRunTemplate:
-    serviceAccountName: pipelines-as-code-runner
-    podTemplate:
-      securityContext:
-        fsGroup: 65532
+
   workspaces:
+    - name: basic-auth
+      secret:
+        secretName: "{{git_auth_secret}}"
     - name: source
       volumeClaimTemplate:
         spec:
@@ -35,6 +35,9 @@ spec:
           resources:
             requests:
               storage: 128Mi
-    - name: basic-auth
-      secret:
-        secretName: "{{git_auth_secret}}"
+
+  taskRunTemplate:
+    serviceAccountName: pipelines-as-code-runner
+    podTemplate:
+      securityContext:
+        fsGroup: 65532
