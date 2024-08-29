@@ -1,5 +1,5 @@
 # -- Sets number of pods to be created.
-replicaCount: 2
+replicaCount: 1
 
 # -- Image settings
 image:
