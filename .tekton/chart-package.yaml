@@ -1,51 +1,57 @@
-# apiVersion: tekton.dev/v1
-# kind: PipelineRun
-# metadata:
-#   name: public-chart-package
-#   annotations:
-#     pipelinesascode.tekton.dev/on-cel-expression: |
-#       ( event == "pull_request" || ( event == "push" && source_branch == "main") ) && body.sender.login != "livewyer-bot"
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  name: charts-package-{{repo_name}}
+  annotations:
+    pipelinesascode.tekton.dev/on-cel-expression: |
+      ( event == "pull_request" || ( event == "push" && source_branch == "main") ) && ( body.sender.login != "livewyer-bot" && body.sender.login != "lw-tkn[bot]" )
+    pipelinesascode.tekton.dev/on-target-branch: "[main]"
 
-#     # The branch or tag we are targeting (i.e.: main, refs/tags/*)
-#     pipelinesascode.tekton.dev/on-target-branch: "[main]"
-# spec:
-#   pipelineRef:
-#     resolver: cluster
-#     params:
-#       - name: kind
-#         value: pipeline
-#       - name: name
-#         value: 
-#   params:
-#     - name: REPO_OWNER
-#       value: "{{ repo_owner }}"
-#     - name: REPO_NAME
-#       value: "{{ repo_name }}"
-#     - name: SOURCE_BRANCH
-#       value: "{{ source_branch }}"
-#     - name: PULL_REQUEST_NUMBER
-#       value: "{{ pull_request_number }}"
-#     - name: COMMIT_SHA
-#       value: "{{ revision }}"
-#     - name: REGISTRY_URL
-#       value: ghcr.io/livewyer-ops
-#   taskRunTemplate:
-#     serviceAccountName: pipelines-as-code-runner
-#     podTemplate:
-#       securityContext:
-#         fsGroup: 65532
-#   workspaces:
-#     - name: shared-data
-#       volumeClaimTemplate:
-#         spec:
-#           accessModes:
-#           - ReadWriteOnce
-#           resources:
-#             requests:
-#               storage: 128Mi
-#     - name: helm-registry-credentials
-#       secret:
-#         secretName: lw-ghcr-cred
-#     - name: ssh-directory
-#       secret:
-#         secretName: livewyer-bot-ssh-cred
+spec:
+  pipelineRef:
+    resolver: cluster
+    params:
+      - name: kind
+        value: pipeline
+      - name: name
+        value: charts-package
+
+  params:
+    - name: debug
+      value: ""
+    - name: url
+      value: "{{repo_url}}"
+    - name: revision
+      value: "{{revision}}"
+    - name: repoName
+      value: "{{repo_name}}"
+    - name: targetBranch
+      value: "{{target_branch}}"
+    - name: sourceBranch
+      value: "{{source_branch}}"
+    - name: prNumber
+      value: "{{pull_request_number}}"
+    - name: helmRegistryURL
+      value: "us-central1-docker.pkg.dev/mgmt-wyer-live/livewyer-public-helm-registry"
+
+  workspaces:
+    - name: basic-auth
+      secret:
+        secretName: "{{git_auth_secret}}"
+    - name: source
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 128Mi
+    - name: helm-registry-config
+      secret:
+        secretName: helm-registry-credentials
+
+  taskRunTemplate:
+    serviceAccountName: pipelines-as-code-runner
+    podTemplate:
+      securityContext:
+        fsGroup: 65532
