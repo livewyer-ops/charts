@@ -1,5 +1,5 @@
 name: hello-world
-version: 0.1.2
+version: 0.1.3
 appVersion: v1.16.0
 description: |
   `hello-world` Helm chart deploys NGINX webserver.

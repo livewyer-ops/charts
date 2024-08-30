@@ -1,6 +1,6 @@
 # hello-world
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.16.0](https://img.shields.io/badge/AppVersion-v1.16.0-informational?style=flat-square)
+![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.16.0](https://img.shields.io/badge/AppVersion-v1.16.0-informational?style=flat-square)
 
 `hello-world` Helm chart deploys NGINX webserver.
 
@@ -45,7 +45,7 @@
 | nodeSelector | object | `{}` | Node selection constraint. Ref. <https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector> |
 | podAnnotations | object | `{}` | Adds custom pod annotations. |
 | podSecurityContext | object | `{}` | Sets security context for the pod. |
-| replicaCount | int | `2` | Sets number of pods to be created. |
+| replicaCount | int | `1` | Sets number of pods to be created. |
 | resources | object | `{}` | Resources usage |
 | securityContext | object | `{}` | Sets security context for a specific container of the pod. |
 | service | object | `{"port":80,"type":"ClusterIP"}` | Service settings |
