@@ -4,7 +4,8 @@ metadata:
   name: markdownlint-{{repo_name}}
   annotations:
     pipelinesascode.tekton.dev/on-cel-expression: |
-      ( event == "pull_request" || ( event == "push" && source_branch == "main") ) && body.sender.login != "lw-tkn[bot]"
+      ( event == "pull_request" || ( event == "push" && source_branch == "main") ) && ( body.sender.login != "livewyer-bot" && body.sender.login != "lw-tkn[bot]" )
+    pipelinesascode.tekton.dev/on-target-branch: "[main]"
 
 spec:
   pipelineRef:
