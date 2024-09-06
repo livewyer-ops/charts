@@ -11,7 +11,7 @@
 
 <h1 align="center">LiveWyer Helm Charts Repository</h1>
 
-You can find our Helm charts on GitHub Container Registry (GHCR): <https://github.com/orgs/livewyer-ops/packages?repo_name=charts>
+You can find our Helm charts in Google Artifact Registry: <us-central1-docker.pkg.dev/mgmt-wyer-live/livewyer-public-helm-registry>
 
 ## Overview
 
@@ -23,10 +23,12 @@ LiveWyer Helm chart repository offers a diverse collection of Helm charts design
 
 We enabled `Tekton` [CI](https://tekton.dev) with [PaC](https://pipelinesascode.com) on this repo to execute the following pipelines:
 
-* [Chart package](./.tekton/chart-package.yaml) that packages your Helm chart and pushed to `livewyer-ops` GHCR
+* [Chart package](./.tekton/chart-package.yaml) that packages your Helm chart and pushes to Google Artifact Registry
 * [Markdown lint](./.tekton/markdown-lint.yaml) that lints all markdown files in this repository
+* [Release](./.tekton/release.yaml) that creates GitHub Releases based on the labels attached to your pull requests
 
 > A `markdown` [configuration file](./.markdownlint-cli2.yaml) is applied.
+> A `release` [configuration file](./.autorc) is applied.
 
 ## Documentation
 
