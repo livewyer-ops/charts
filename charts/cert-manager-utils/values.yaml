@@ -1,9 +1,11 @@
+# -- Partially override Chart name
+nameOverride: ""
 
-
-
+# -- This section manages Certificates
 certificates:
   # -- Сertificate object version
   apiVersion: cert-manager.io/v1
+
   # -- (object) Labels to add to all Сertificates
   # @default -- see [values](values.yaml)
   commonLabels: {}
@@ -12,19 +14,18 @@ certificates:
   # @default -- see [values](values.yaml)
   commonAnnotations: {}
 
-
+  # -- Define number and configuration of your certificates. 
+  # All syntax is honoured from API Reference, but make sure to review templates/Certificate.yaml template.
   objects:
-
-    wildcard-tls:
+    wildcard-tls-production:
       issuerRef:
         kind: ClusterIssuer
         name: letsencrypt-production
-      commonName: "*.example.com"
+      commonName: "*.production.example.com"
       dnsNames:
-        - "*.example.com" 
+        - "*.production.example.com" 
 
-
-
+# -- This section manages Issuers
 issuers:
   # -- Issuer(ClusterIssuer) object version
   apiVersion: cert-manager.io/v1
@@ -36,6 +37,8 @@ issuers:
   # @default -- see [values](values.yaml)
   commonAnnotations: {}
 
+  # -- Define number and configuration of your Issuers.
+  # templates/Issuer.yaml template uses toYaml function for "spec" section, so make sure to follow official API Reference
   objects:
     letsencrypt-production:
       kind: ClusterIssuer

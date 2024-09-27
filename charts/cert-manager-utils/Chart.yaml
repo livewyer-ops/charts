@@ -1,6 +1,6 @@
 apiVersion: v2
 name: cert-manager-utils
-description: A Helm chart for Kubernetes Cert-manager Resources
+description: A Helm chart for Kubernetes cert-manager Resources
 type: application
 
 version: 1.0.0
