@@ -24,6 +24,7 @@ certificates:
         - "*.example.com" 
 
 
+
 issuers:
   # -- Issuer(ClusterIssuer) object version
   apiVersion: cert-manager.io/v1
@@ -64,4 +65,3 @@ issuers:
             - http01:
                 ingress:
                   class: nginx
-              email: 

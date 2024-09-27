@@ -1,9 +1,12 @@
-{{- range $certificate, $name := .Values.certificates.objects -}}
-apiVersion: {{ .Values.issuers.apiVersion }}
+{{- range $certificate, $name := .Values.certificates.objects }}
+---
+apiVersion: {{ $.Values.issuers.apiVersion }}
 kind: Certificate
 metadata:
-  name: $certificate
-  namespace: {{ $name.namespace }}
+  name: {{ $certificate }}
+  namespace: {{ default $.Release.Namespace $name.namespace }}
+  labels: {{- include "helper.labels" ( dict "customLabels" $.Values.certificates.commonLabels "context" $ ) | nindent 4 }}
+  annotations: {{- include "helper.render" ( dict "value" $.Values.certificates.commonAnnotations "context" $ ) | nindent 4 }}
 spec:
   {{- with $name.subject }}
   subject:
@@ -15,7 +18,7 @@ spec:
   {{- end }}
 
   {{- if $name.commonName }}
-  commonName: {{ $name.commonName }}
+  commonName: {{ $name.commonName | quote }}
   {{- end }}
 
   duration: {{ default "2160h" $name.duration }} # 90d
@@ -46,10 +49,7 @@ spec:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 
-  emailAddresses:
-    - john.doe@cert-manager.io
-
-  secretName: $certificate
+  secretName: {{ $certificate }}
 
   {{- with $name.secretTemplate }}
   secretTemplate:
