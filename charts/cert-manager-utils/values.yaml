@@ -15,7 +15,7 @@ certificates:
   commonAnnotations: {}
 
   # -- Define number and configuration of your certificates. 
-  # All syntax is honoured from API Reference, but make sure to review templates/Certificate.yaml template.
+  # Our syntax follows the API Reference, but make sure to review templates/Certificate.yaml template.
   objects:
     wildcard-tls-production:
       issuerRef:
@@ -38,7 +38,7 @@ issuers:
   commonAnnotations: {}
 
   # -- Define number and configuration of your Issuers.
-  # templates/Issuer.yaml template uses toYaml function for "spec" section, so make sure to follow official API Reference
+  # templates/Issuer.yaml template uses toYaml function for "spec" section, so make sure to follow API Reference
   objects:
     letsencrypt-production:
       kind: ClusterIssuer
