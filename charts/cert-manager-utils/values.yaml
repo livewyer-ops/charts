@@ -1,0 +1,48 @@
+
+
+
+certificates:
+  # -- Tekton StepAction object version
+  apiVersion: cert-manager.io/v1
+  # -- (object) Labels to add to all Tekton StepActions
+  # @default -- see [values](values.yaml)
+  commonLabels: {}
+
+  # -- (object) Annotations to add to all Tekton StepActions
+  # @default -- see [values](values.yaml)
+  commonAnnotations: {}
+
+issuers:
+  # -- Tekton StepAction object version
+  apiVersion: cert-manager.io/v1
+  # -- (object) Labels to add to all Tekton StepActions
+  # @default -- see [values](values.yaml)
+  commonLabels: {}
+
+  # -- (object) Annotations to add to all Tekton StepActions
+  # @default -- see [values](values.yaml)
+  commonAnnotations: {}
+
+  objects:
+    letsencrypt-production:
+      kind: ClusterIssuer
+      spec:
+        email: my@email.com
+        server: https://acme-v02.api.letsencrypt.org/directory
+        solvers:
+        - dns01:
+            cloudDNS:
+              project: mgmt-wyer-live
+              serviceAccountSecretRef:
+                key: key.json
+                name: clouddns-dns01-cert-solver
+
+    letsencrypt-staging:
+      kind: ClusterIssuer
+      spec:
+        email: my@email.com
+        server: https://acme-staging-v02.api.letsencrypt.org/directory
+        solvers:
+        - http01:
+            ingress:
+              class: nginx
