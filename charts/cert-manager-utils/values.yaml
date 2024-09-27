@@ -2,24 +2,36 @@
 
 
 certificates:
-  # -- Tekton StepAction object version
+  # -- Сertificate object version
   apiVersion: cert-manager.io/v1
-  # -- (object) Labels to add to all Tekton StepActions
+  # -- (object) Labels to add to all Сertificates
   # @default -- see [values](values.yaml)
   commonLabels: {}
 
-  # -- (object) Annotations to add to all Tekton StepActions
+  # -- (object) Annotations to add to all Сertificates
   # @default -- see [values](values.yaml)
   commonAnnotations: {}
 
+
+  objects:
+
+    wildcard-tls:
+      issuerRef:
+        kind: ClusterIssuer
+        name: letsencrypt-production
+      commonName: "*.example.com"
+      dnsNames:
+        - "*.example.com" 
+
+
 issuers:
-  # -- Tekton StepAction object version
+  # -- Issuer(ClusterIssuer) object version
   apiVersion: cert-manager.io/v1
-  # -- (object) Labels to add to all Tekton StepActions
+  # -- (object) Labels to add to all Issuers(ClusterIssuers)
   # @default -- see [values](values.yaml)
   commonLabels: {}
 
-  # -- (object) Annotations to add to all Tekton StepActions
+  # -- (object) Annotations to add to all Issuers(ClusterIssuers)
   # @default -- see [values](values.yaml)
   commonAnnotations: {}
 
@@ -27,22 +39,29 @@ issuers:
     letsencrypt-production:
       kind: ClusterIssuer
       spec:
-        email: my@email.com
-        server: https://acme-v02.api.letsencrypt.org/directory
-        solvers:
-        - dns01:
-            cloudDNS:
-              project: mgmt-wyer-live
-              serviceAccountSecretRef:
-                key: key.json
-                name: clouddns-dns01-cert-solver
+        acme:
+          email: my@email.com
+          server: https://acme-v02.api.letsencrypt.org/directory
+          privateKeySecretRef:
+            name: letsencrypt-production
+          solvers:
+          - dns01:
+              cloudDNS:
+                project: mgmt-wyer-live
+                serviceAccountSecretRef:
+                  key: key.json
+                  name: clouddns-dns01-cert-solver
 
     letsencrypt-staging:
       kind: ClusterIssuer
       spec:
-        email: my@email.com
-        server: https://acme-staging-v02.api.letsencrypt.org/directory
-        solvers:
-        - http01:
-            ingress:
-              class: nginx
+        acme:
+          email: my@email.com
+          server: https://acme-staging-v02.api.letsencrypt.org/directory
+          privateKeySecretRef:
+            name: letsencrypt-staging
+          solvers:
+            - http01:
+                ingress:
+                  class: nginx
+              email: 
