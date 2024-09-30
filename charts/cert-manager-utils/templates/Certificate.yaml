@@ -21,8 +21,8 @@ spec:
   commonName: {{ $name.commonName | quote }}
   {{- end }}
 
-  duration: {{ default "2160h" $name.duration }} # 90d
-  renewBefore: {{ default "360h" $name.renewBefore }} # 15d
+  duration: {{ default "2160h" $name.duration }}
+  renewBefore: {{ default "360h" $name.renewBefore }}
 
   {{- with $name.dnsNames }}
   dnsNames:

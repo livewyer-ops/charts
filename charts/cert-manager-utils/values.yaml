@@ -25,10 +25,11 @@ certificates:
       dnsNames:
         - "*.production.example.com" 
 
-# -- This section manages Issuers
+# -- This section manages Issuers and ClusterIssuers
 issuers:
   # -- Issuer(ClusterIssuer) object version
   apiVersion: cert-manager.io/v1
+
   # -- (object) Labels to add to all Issuers(ClusterIssuers)
   # @default -- see [values](values.yaml)
   commonLabels: {}
@@ -51,7 +52,7 @@ issuers:
           solvers:
           - dns01:
               cloudDNS:
-                project: mgmt-wyer-live
+                project: my-clouddns-project
                 serviceAccountSecretRef:
                   key: key.json
                   name: clouddns-dns01-cert-solver
