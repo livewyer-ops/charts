@@ -57,7 +57,7 @@ issuers:
                   key: key.json
                   name: clouddns-dns01-cert-solver
 
-    letsencrypt-staging-1:
+    letsencrypt-staging:
       kind: ClusterIssuer
       spec:
         acme:
