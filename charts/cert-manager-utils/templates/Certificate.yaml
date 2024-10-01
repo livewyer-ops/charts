@@ -1,3 +1,5 @@
+{{- include "helper.checkCertManagerCRD" . -}}
+
 {{- range $certificate, $name := .Values.certificates.objects }}
 ---
 apiVersion: {{ $.Values.issuers.apiVersion }}

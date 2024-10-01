@@ -94,3 +94,12 @@ app.kubernetes.io/name: {{ include "helper.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 {{- end -}}
+{{- define "helper.checkCertManagerCRD" -}}
+  {{- $certificates := lookup "apiextensions.k8s.io/v1" "CustomResourceDefinition" "" "certificates.cert-manager.io" -}}
+  {{- $issuers := lookup "apiextensions.k8s.io/v1" "CustomResourceDefinition" "" "issuers.cert-manager.io" -}}
+  {{- $clusterissuers := lookup "apiextensions.k8s.io/v1" "CustomResourceDefinition" "" "clusterissuers.cert-manager.io" -}}
+
+  {{- if or (not $certificates) (not $issuers) (not $clusterissuers) }}
+    {{ fail "cert-manager CRDs not found. Please install cert-manager before deploying this chart." }}
+  {{- end }}
+{{- end -}}
