@@ -16,10 +16,10 @@
                 },
                 "objects": {
                     "type": "object",
-                        "patternProperties": {
-                            "^[a-zA-Z0-9-_]+$":{
-                              "type": "object",
-                              "properties": {
+                    "patternProperties": {
+                        "^[a-zA-Z0-9-_]+$": {
+                            "type": "object",
+                            "properties": {
                                 "commonName": {
                                     "type": "string"
                                 },
@@ -29,13 +29,36 @@
                                         "type": "string"
                                     }
                                 },
+                                "ipAddresses": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "uris": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
                                 "issuerRef": {
                                     "type": "object",
+                                    "required": [
+                                        "kind",
+                                        "name"
+                                    ],
                                     "properties": {
                                         "kind": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "enum": [
+                                                "Issuer",
+                                                "ClusterIssuer"
+                                            ]
                                         },
                                         "name": {
+                                            "type": "string"
+                                        },
+                                        "group": {
                                             "type": "string"
                                         }
                                     }
@@ -63,9 +86,17 @@
                     "patternProperties": {
                         "^[a-zA-Z0-9-_]+$": {
                             "type": "object",
+                            "required": [
+                                "kind",
+                                "spec"
+                            ],
                             "properties": {
                                 "kind": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "enum": [
+                                        "Issuer",
+                                        "ClusterIssuer"
+                                    ]
                                 },
                                 "spec": {
                                     "type": "object"

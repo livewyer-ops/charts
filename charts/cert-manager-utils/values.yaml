@@ -1,6 +1,11 @@
 # -- Partially override Chart name
 nameOverride: ""
 
+# -- Ensure that the necessary CRDs are installed
+# Note: This function generates an error when used with the template command for local testing,
+# and therefore, you can disable it. 
+checkCertManagerCRDs: false
+
 # -- This section manages Certificates
 certificates:
   # -- Сertificate object version
