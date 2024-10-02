@@ -1,0 +1,14 @@
+{{- include "helper.checkCertManagerCRD" . -}}
+
+{{- range $issuer, $name := .Values.issuers.objects }}
+---
+apiVersion: {{ $.Values.issuers.apiVersion }}
+kind: {{ $name.kind }}
+metadata:
+  name: {{ $issuer }}
+  namespace: {{ default $.Release.Namespace $name.namespace }}
+  labels: {{- include "helper.labels" ( dict "customLabels" $.Values.issuers.commonLabels "context" $ ) | nindent 4 }}
+  annotations: {{- include "helper.render" ( dict "value" $.Values.issuers.commonAnnotations "context" $ ) | nindent 4 }}
+spec:
+  {{- toYaml $name.spec | nindent 2 }}
+{{- end -}}

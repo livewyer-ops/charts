@@ -1,0 +1,103 @@
+{{- include "helper.checkCertManagerCRD" . -}}
+
+{{- range $certificate, $name := .Values.certificates.objects }}
+---
+apiVersion: {{ $.Values.issuers.apiVersion }}
+kind: Certificate
+metadata:
+  name: {{ $certificate }}
+  namespace: {{ default $.Release.Namespace $name.namespace }}
+  labels: {{- include "helper.labels" ( dict "customLabels" $.Values.certificates.commonLabels "context" $ ) | nindent 4 }}
+  annotations: {{- include "helper.render" ( dict "value" $.Values.certificates.commonAnnotations "context" $ ) | nindent 4 }}
+spec:
+  {{- with $name.subject }}
+  subject:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  {{- if $name.literalSubject }}
+  literalSubject: {{ $name.literalSubject }}
+  {{- end }}
+
+  {{- if $name.commonName }}
+  commonName: {{ $name.commonName | quote }}
+  {{- end }}
+
+  duration: {{ default "2160h" $name.duration }}
+  renewBefore: {{ default "360h" $name.renewBefore }}
+
+  {{- with $name.dnsNames }}
+  dnsNames:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  {{- with $name.ipAddresses }}
+  ipAddresses:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  {{- with $name.uris }}
+  uris:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  {{- with $name.otherNames }}
+  otherNames:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  {{- with $name.emailAddresses }}
+  emailAddresses:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  secretName: {{ $certificate }}
+
+  {{- with $name.secretTemplate }}
+  secretTemplate:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  {{- with $name.keystores }}
+  keystores:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  issuerRef:
+    name: {{ $name.issuerRef.name }}
+    kind: {{ $name.issuerRef.kind }}
+    group: {{ default "cert-manager.io" $name.issuerRef.group }}
+
+  {{- if $name.isCA }}
+  isCA: {{ $name.isCA }}
+  {{- end }}
+
+  {{- with $name.usages }}
+  usages:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  {{- with $name.privateKey }}
+  privateKey:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  {{- if $name.encodeUsagesInRequest }}
+  encodeUsagesInRequest: {{ $name.encodeUsagesInRequest }}
+  {{- end }}
+
+  {{- if $name.revisionHistoryLimit }}
+  revisionHistoryLimit: {{ $name.revisionHistoryLimit }}
+  {{- end }}
+
+  {{- with $name.additionalOutputFormats }}
+  additionalOutputFormats:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+  {{- with $name.nameConstraints }}
+  nameConstraints:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+{{- end -}}

@@ -1,0 +1,76 @@
+# -- Partially override Chart name
+nameOverride: ""
+
+# -- Ensure that the necessary CRDs are installed
+# Note: This function generates an error when used with the template command for local testing,
+# and therefore, you can disable it. 
+checkCertManagerCRDs: false
+
+# -- This section manages Certificates
+certificates:
+  # -- Сertificate object version
+  apiVersion: cert-manager.io/v1
+
+  # -- (object) Labels to add to all Сertificates
+  # @default -- see [values](values.yaml)
+  commonLabels: {}
+
+  # -- (object) Annotations to add to all Сertificates
+  # @default -- see [values](values.yaml)
+  commonAnnotations: {}
+
+  # -- Define number and configuration of your certificates. 
+  # Our syntax follows the API Reference, but make sure to review templates/Certificate.yaml template.
+  objects:
+    wildcard-tls-production:
+      issuerRef:
+        kind: ClusterIssuer
+        name: letsencrypt-production
+      commonName: "*.production.example.com"
+      dnsNames:
+        - "*.production.example.com" 
+
+# -- This section manages Issuers and ClusterIssuers
+issuers:
+  # -- Issuer(ClusterIssuer) object version
+  apiVersion: cert-manager.io/v1
+
+  # -- (object) Labels to add to all Issuers(ClusterIssuers)
+  # @default -- see [values](values.yaml)
+  commonLabels: {}
+
+  # -- (object) Annotations to add to all Issuers(ClusterIssuers)
+  # @default -- see [values](values.yaml)
+  commonAnnotations: {}
+
+  # -- Define number and configuration of your Issuers.
+  # templates/Issuer.yaml template uses toYaml function for "spec" section, so make sure to follow API Reference
+  objects:
+    letsencrypt-production:
+      kind: ClusterIssuer
+      spec:
+        acme:
+          email: my@email.com
+          server: https://acme-v02.api.letsencrypt.org/directory
+          privateKeySecretRef:
+            name: letsencrypt-production
+          solvers:
+          - dns01:
+              cloudDNS:
+                project: my-clouddns-project
+                serviceAccountSecretRef:
+                  key: key.json
+                  name: clouddns-dns01-cert-solver
+
+    letsencrypt-staging:
+      kind: ClusterIssuer
+      spec:
+        acme:
+          email: my@email.com
+          server: https://acme-staging-v02.api.letsencrypt.org/directory
+          privateKeySecretRef:
+            name: letsencrypt-staging
+          solvers:
+            - http01:
+                ingress:
+                  class: nginx
