@@ -11,7 +11,7 @@
 
 <h1 align="center">LiveWyer Helm Charts Repository</h1>
 
-You can find our Helm charts in Google Artifact Registry: <us-central1-docker.pkg.dev/mgmt-wyer-live/livewyer-public-helm-registry>
+You can find our Helm charts in [GitHub Pages](https://livewyer-ops.github.io/charts/)
 
 ## Overview
 
@@ -19,9 +19,16 @@ LiveWyer Helm chart repository offers a diverse collection of Helm charts design
 
 > Refer to [CONTRIBUTING.md](./CONTRIBUTING.md) for guidance how to contribute to the project.
 
-### Charts
+## Charts
 
 - **Piraeus Operator**: Piraeus Datastore Operator from [Piraeus Operator upstream repository](https://github.com/piraeusdatastore/piraeus-operator/tree/v2/charts/piraeus)
+
+## Usage
+
+```shell
+helm repo add livewyer-charts https://livewyer-ops.github.io/charts/
+helm repo update
+```
 
 ## Documentation
 
