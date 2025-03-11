@@ -19,16 +19,9 @@ LiveWyer Helm chart repository offers a diverse collection of Helm charts design
 
 > Refer to [CONTRIBUTING.md](./CONTRIBUTING.md) for guidance how to contribute to the project.
 
-### CI/CD
+### Charts
 
-We enabled `Tekton` [CI](https://tekton.dev) with [PaC](https://pipelinesascode.com) on this repo to execute the following pipelines:
-
-* [Chart package](./.tekton/chart-package.yaml) that packages your Helm chart and pushes to Google Artifact Registry
-* [Markdown lint](./.tekton/markdown-lint.yaml) that lints all markdown files in this repository
-* [Release](./.tekton/release.yaml) that creates GitHub Releases based on the labels attached to your pull requests
-
-> A `markdown` [configuration file](./.markdownlint-cli2.yaml) is applied.
-> A `release` [configuration file](./.autorc) is applied.
+- **Piraeus Operator**: Piraeus Datastore Operator from [Piraeus Operator upstream repository](https://github.com/piraeusdatastore/piraeus-operator/tree/v2/charts/piraeus)
 
 ## Documentation
 
