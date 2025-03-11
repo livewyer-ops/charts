@@ -1,5 +1,0 @@
-{
-  "onlyPublishWithReleaseLabel": true,
-  "plugins": ["git-tag"],
-  "versionBranches": true
-}
